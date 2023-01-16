@@ -18,17 +18,5 @@ namespace ChannelAnalysis.API.Data
         //{
         //    Database.EnsureCreated();
         //}
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=ChannelAnalysis;Username=postgres;Password=postgresql");
-        }
-
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Channel>()
-        //        .HasOne(c => c.Statistics)
-        //        .WithOne(s => s.Channel)
-        //        .HasForeignKey<ChannelStatistics>(c => c.ChannelId);
-        //}
     }
 }

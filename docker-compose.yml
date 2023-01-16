@@ -1,0 +1,20 @@
+version: "3"
+services:
+  ui:
+    image: "channel_analysis_ui"
+    ports:
+      - "4200:80"
+    depends_on:
+      - api
+  api:
+    image: "channel_analysis_api"
+    ports:
+      - "5002:5002"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    depends_on:
+      - db
+  db:
+    image: "postgres"
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: "trust"
