@@ -41,15 +41,15 @@ namespace ChannelAnalysis.API.Controllers
             return channel is null ? NotFound() : Ok(channel);
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> AddChannel(string channelName)
-        //{
-        //    var channel = new Channel { ChannelName = channelName };
-        //    channel = _context.Channel.Add(channel).Entity;
-        //    _context.AnalysisQueue.Add(new AnalysisQueue { ChannelId = channel.Id });
-        //    await _context.SaveChangesAsync();
+        [HttpPost]
+        public async Task<IActionResult> AddChannel([FromBody]string channelLink)
+        {
+            //var channel = new Channel { ChannelName = channelName };
+            //channel = _context.Channel.Add(channel).Entity;
+            _context.AnalysisQueue.Add(new AnalysisQueue { ChannelLink = channelLink });
+            await _context.SaveChangesAsync();
 
-        //    return Ok();
-        //}
+            return Ok();
+        }
     }
 }
